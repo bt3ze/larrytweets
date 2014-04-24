@@ -1,0 +1,18 @@
+awesome count: 222
+president count: 4202
+
+
+db.tweets.find ( { $text: { $search: "President" } }).count()
+5419
+
+db.tweets.distinct( "user.id" ).length 
+13539
+
+db.tweets.find( {} , { "text":1 , "retweet_status":1 , "retweet_count":1, "created_at":1, "user.screen_name":1 } ).sort( {"retweet_status":-1}).limit(10);
+
+
+{u'text': u'#Uva roll call: SULLIVAN REINSTATED 15-0!', u'created_at': u'Tue Jun 26 19:26:29 +0000 2012', u'_id': ObjectId('535293efd034dbf60b2d8780'), u'user': {u'screen_name': u'UVA'}, u'retweet_count': 432}
+{u'text': u'RT @aaronsdotson: The saddest part of the #UVa saga is that it was easier to fire the president than Al Groh.', u'created_at': u'Tue Jun 19 21:20:23 +0000 2012', u'_id': ObjectId('535290dcd034dbf60b2d1cf0'), u'user': {u'screen_name': u'laurenmoriarty'}, u'retweet_count': 198}
+{u'text': u'Wise person said to me: "Online college education is what its advocates want for other people\'s children."', u'created_at': u'Thu Jun 21 14:57:05 +0000 2012', u'_id': ObjectId('53529174d034dbf60b2d4083'), u'user': {u'screen_name': u'LarrySabato'}, u'retweet_count': 177}
+{u'text': u'RT @thinkprogress: Texas GOP platform opposes schools teaching \u201ccritical thinking skills\u201d http://t.co/P4DcgjgH #seriously', u'created_at': u'Tue Jun 26 16:21:28 +0000 2012', u'_id': ObjectId('5352937cd034dbf60b2d7d07'), u'user': {u'screen_name': u'sivavaid'}, u'retweet_count': 165}
+{u'text': u'Teresa Sullivan is unanimously reinstated as president of #UVA. The Lawn erupts in cheers.', u'created_at': u'Tue Jun 26 19:27:07 +0000 2012', u'_id': ObjectId('535293f6d034dbf60b2d8818'), u'user': {u'screen_name': u'wpjenna'}, u'retweet_count': 165}
